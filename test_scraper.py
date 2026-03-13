@@ -32,7 +32,7 @@ GIS_URL = (
 )
 
 TARGET_CITY = "American Fork"
-TARGET_LEADS = 10           # For test run; set to None to fetch all qualifying
+TARGET_LEADS = None         # None = fetch all qualifying leads
 OUTPUT_DIR = "output"
 LOG_DIR = "logs"
 
@@ -234,7 +234,7 @@ def main():
     # Sort by priority score descending
     leads.sort(key=lambda x: x["priority_score"], reverse=True)
 
-    filepath = write_csv(leads, "american_fork_leads_test.csv")
+    filepath = write_csv(leads, "american_fork_leads.csv")
 
     log.info(f"\n{'=' * 55}")
     log.info(f"COMPLETE — {len(leads)} leads written to {filepath}")
